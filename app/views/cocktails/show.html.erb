@@ -1,0 +1,13 @@
+<h2><%= @cocktail.name %></h2>
+
+<%= render "doses/form" %>
+
+<% @cocktail.doses.each do |dose| %>
+  <% if dose.persisted? %>
+    <div class="dose">
+      <%= dose.description %>
+      <%= dose.ingredient.name %>
+
+    </div>
+  <% end %>
+<% end %>

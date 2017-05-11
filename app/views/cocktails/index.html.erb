@@ -1,0 +1,15 @@
+<h1>Card of cocktails</h1>
+
+<%= link_to "Create a new cocktail", new_cocktail_path, class: "btn btn-primary" %>
+
+<% @cocktails.each do |cocktail| %>
+  <h3>
+  <%= link_to cocktail.name, cocktail_path(cocktail) %>
+  </h3>
+  <%= link_to "Delete", cocktail_path(cocktail), class: "btn btn-secondary",
+  method: :delete,
+  data: { confirm: "Are you sure?" } %>
+<% end %>
+
+
+
