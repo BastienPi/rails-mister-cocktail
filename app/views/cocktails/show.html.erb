@@ -1,13 +1,23 @@
 <h2><%= @cocktail.name %></h2>
+<hr>
+<%= link_to "go back to the list of cocktails", cocktails_path , class: "btn btn-primary"%>
+<hr>
 
-<%= render "doses/form" %>
-
-<% @cocktail.doses.each do |dose| %>
-  <% if dose.persisted? %>
-    <div class="dose">
-      <%= dose.description %>
-      <%= dose.ingredient.name %>
-
-    </div>
+<% if @cocktail.doses.empty? %>
+  <%= "This cocktail has no description yet" %>
+<% else %>
+<%= "List of ingredients :" %>
+  <br></br>
+  <% @cocktail.doses.each do |dose| %>
+    <li>
+    <%= dose.description %>
+    <%= dose.ingredient.name %>
+    <%= link_to "Delete", dose_path(dose), method: :delete %>
+    </li>
   <% end %>
 <% end %>
+
+<hr>
+<%= "Here you can add a dose to your cocktail" %>
+<br></br>
+<%= render "doses/form" %>
