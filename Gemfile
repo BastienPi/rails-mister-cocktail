@@ -37,6 +37,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'figaro'
 gem 'cloudinary'
+gem 'carrierwave', '~> 0.11.2'
 
 ruby '2.3.3'
 
